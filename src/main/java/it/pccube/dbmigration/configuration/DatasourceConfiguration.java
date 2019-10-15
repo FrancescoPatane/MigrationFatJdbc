@@ -18,10 +18,6 @@ public class DatasourceConfiguration {
 	  return DataSourceBuilder.create().build();
 	 }
 
-	 @Bean(name = "jdbcTemplateSource")
-	 public JdbcTemplate jdbcTemplate1(@Qualifier("dbSource") DataSource ds) {
-	  return new JdbcTemplate(ds);
-	 }
 	 
 	 @Bean(name = "dbDestination")
 	 @ConfigurationProperties(prefix = "spring.datasource-destination")
@@ -29,9 +25,6 @@ public class DatasourceConfiguration {
 	  return  DataSourceBuilder.create().build();
 	 }
 
-	 @Bean(name = "jdbcTemplateDestination")
-	 public JdbcTemplate jdbcTemplate2(@Qualifier("dbDestination") DataSource ds) {
-	  return new JdbcTemplate(ds);
-	 }
+	 
 
 }

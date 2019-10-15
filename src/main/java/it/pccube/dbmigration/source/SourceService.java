@@ -14,7 +14,7 @@ public class SourceService {
 	
 	
 	public int countAll(){
-		String sql = "select count(*) from FE_DIZ_TIPO_CASSA";
+		String sql = "select count(*) from FAT_T_DIZ_TIPO_CASSA";
 		int count = jdbcTemplate.queryForObject(sql, Integer.class);
 		return count;
 	}
