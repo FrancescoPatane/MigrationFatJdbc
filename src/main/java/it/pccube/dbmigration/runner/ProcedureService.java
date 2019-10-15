@@ -17,7 +17,7 @@ public class ProcedureService {
 	
 	public String test(){
 		int countS = sourceService.countAll();
-		int countD = destinationService.countAll();
+		long countD = destinationService.countAll();
 
 		return "Count source: " + countS + " count destinatio " + countD;
 	}
