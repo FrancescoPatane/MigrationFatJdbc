@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 public class CommandLineAppStartupRunner implements CommandLineRunner {
 	
 	
-    private static  Logger log =
-    	      LoggerFactory.getLogger(CommandLineAppStartupRunner.class);
+    private static  Logger log = LoggerFactory.getLogger(CommandLineAppStartupRunner.class);
     
     @Autowired
 	private ProcedureService procService;
