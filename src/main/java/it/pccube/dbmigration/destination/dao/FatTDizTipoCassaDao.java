@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import it.pccube.dbmigration.destination.entity.FatTDizTipoCassa;
 
 
-//@Repository
 public interface FatTDizTipoCassaDao extends JpaRepository<FatTDizTipoCassa, Long> {
 
 }

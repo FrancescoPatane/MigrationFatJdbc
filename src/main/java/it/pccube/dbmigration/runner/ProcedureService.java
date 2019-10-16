@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import it.pccube.dbmigration.destination.DestinationService;
 import it.pccube.dbmigration.source.SourceService;
@@ -13,6 +14,7 @@ import it.pccube.dbmigration.source.model.FeDizTipoCassa;
 import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
+@Transactional(transactionManager="tm2", rollbackFor = Exception.class)
 public class ProcedureService {
 	
     private static  Logger log = LoggerFactory.getLogger(ProcedureService.class);
@@ -23,6 +25,7 @@ public class ProcedureService {
 	
 	@Autowired
 	private DestinationService destinationService;
+	
 	
 	public String start(){
 		log.info("#######START-MIGRATION######");
@@ -44,7 +47,7 @@ public class ProcedureService {
 		log.info("--- START Fetching data FeLotto ---");
 		List<FeLotto> sourceList = sourceService.findAll("FE_LOTTO", FeLotto.class);
 		log.info("--- START Import FatTLotto, " + sourceList.size()  + " rows ---");
-//		this.destinationService.importFatTLotto(sourceList);
+		this.destinationService.importFatTLotto(sourceList);
 		log.info("--- END Import FatTDizTipoCassa ---");
 
 	}
