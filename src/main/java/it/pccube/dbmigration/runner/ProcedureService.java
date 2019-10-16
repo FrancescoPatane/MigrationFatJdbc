@@ -14,7 +14,9 @@ import it.pccube.dbmigration.source.model.FeDizTipoCassa;
 import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
-@Transactional(transactionManager="tm2", rollbackFor = Exception.class)
+@Transactional(rollbackFor = Exception.class)
+//@Transactional(transactionManager="tm2",  rollbackFor = Exception.class)
+
 public class ProcedureService {
 	
     private static  Logger log = LoggerFactory.getLogger(ProcedureService.class);

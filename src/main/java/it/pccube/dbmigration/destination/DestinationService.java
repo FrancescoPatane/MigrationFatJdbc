@@ -19,7 +19,9 @@ import it.pccube.dbmigration.source.model.FeDizTipoCassa;
 import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
-@Transactional(transactionManager="tm2",  rollbackFor = Exception.class)
+//@Transactional(transactionManager="tm2",  rollbackFor = Exception.class)
+@Transactional(rollbackFor = Exception.class)
+
 public class DestinationService {
 
 	private static  Logger log = LoggerFactory.getLogger(DestinationService.class);
@@ -62,7 +64,7 @@ public class DestinationService {
 			try{
 				FatTLotto entity = this.mapper.mapFatTLotto(bean);
 				FatTLotto entitySaved = lottoDao.save(entity);
-				log.info("--- Successfully imported FeLotto with PK " + bean.getIdLotto() + " . It was saved with id " + entitySaved + " ---");
+				log.info("--- Successfully imported FeLotto with PK " + bean.getIdLotto() + " . It was saved with id " + entitySaved.getIdLotto() + " ---");
 			}catch (Exception e){
 				log.error("--- Error importing FeLotto with PK " + bean.getIdLotto() + " ---");
 				throw e;

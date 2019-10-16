@@ -19,7 +19,7 @@ public class DatasourceConfiguration {
 	  return DataSourceBuilder.create().build();
 	 }
 
-	 
+	 @Primary
 	 @Bean(name = "dbDestination")
 	 @ConfigurationProperties(prefix = "spring.datasource-destination")
 	 public DataSource dataSource2() {
