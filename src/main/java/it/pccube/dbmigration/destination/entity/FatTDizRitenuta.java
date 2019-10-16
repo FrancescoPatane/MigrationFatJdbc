@@ -13,22 +13,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
+
 /**
- * The persistent class for the FAT_T_DIZ_TIPO_CASSA database table.
+ * The persistent class for the FAT_T_DIZ_RITENUTA database table.
  * 
  */
 @Entity
-@Table(name="FAT_T_DIZ_TIPO_CASSA")
-public class FatTDizTipoCassa implements EntityInterface {
+@Table(name="FAT_T_DIZ_RITENUTA")
+public class FatTDizRitenuta implements EntityInterface {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ID_DIZ_TIPO_CASSA")
-	private Long idDizTipoCassa;
+	@Column(name="ID_DIZ_RITENUTA")
+	private Long idDizRitenuta;
 
+	
 	@Column(name="CD_CODICE")
 	private String cdCodice;
 
+	
 	@Column(name="DS_DESCRIZIONE")
 	private String dsDescrizione;
 
@@ -47,22 +50,30 @@ public class FatTDizTipoCassa implements EntityInterface {
 	private Date tsUltimaModifica;
 
 	//bi-directional many-to-one association to FatTDatiCassaPrevidenz
-	@OneToMany(mappedBy="dizTipoCassa")
+	@OneToMany(mappedBy="dizRitenuta")
 	private List<FatTDatiCassaPrevidenz> listDatiCassaPrevidenz;
 
 	//bi-directional many-to-one association to FatTDatiCassaPrevStor
-	@OneToMany(mappedBy="dizTipoCassa")
+	@OneToMany(mappedBy="dizRitenuta")
 	private List<FatTDatiCassaPrevStor> listDatiCassaPrevStor;
 
-	public FatTDizTipoCassa() {
+	//bi-directional many-to-one association to FatTDettaglioLinea
+	@OneToMany(mappedBy="dizRitenuta")
+	private List<FatTDettaglioLinea> listDettaglioLinea;
+
+	//bi-directional many-to-one association to FatTDettaglioLineaStor
+	@OneToMany(mappedBy="dizRitenuta")
+	private List<FatTDettaglioLineaStor> listDettaglioLineaStor;
+
+	public FatTDizRitenuta() {
 	}
 
-	public Long getIdDizTipoCassa() {
-		return this.idDizTipoCassa;
+	public Long getIdDizRitenuta() {
+		return this.idDizRitenuta;
 	}
 
-	public void setIdDizTipoCassa(Long idDizTipoCassa) {
-		this.idDizTipoCassa = idDizTipoCassa;
+	public void setIdDizRitenuta(Long idDizRitenuta) {
+		this.idDizRitenuta = idDizRitenuta;
 	}
 
 	public String getCdCodice() {
@@ -123,14 +134,14 @@ public class FatTDizTipoCassa implements EntityInterface {
 
 	public FatTDatiCassaPrevidenz addFatTDatiCassaPrevidenz(FatTDatiCassaPrevidenz fatTDatiCassaPrevidenz) {
 		getListDatiCassaPrevidenz().add(fatTDatiCassaPrevidenz);
-		fatTDatiCassaPrevidenz.setDizTipoCassa(this);
+		fatTDatiCassaPrevidenz.setDizRitenuta(this);
 
 		return fatTDatiCassaPrevidenz;
 	}
 
 	public FatTDatiCassaPrevidenz removeFatTDatiCassaPrevidenz(FatTDatiCassaPrevidenz fatTDatiCassaPrevidenz) {
 		getListDatiCassaPrevidenz().remove(fatTDatiCassaPrevidenz);
-		fatTDatiCassaPrevidenz.setDizTipoCassa(null);
+		fatTDatiCassaPrevidenz.setDizRitenuta(null);
 
 		return fatTDatiCassaPrevidenz;
 	}
@@ -145,20 +156,64 @@ public class FatTDizTipoCassa implements EntityInterface {
 
 	public FatTDatiCassaPrevStor addFatTDatiCassaPrevStor(FatTDatiCassaPrevStor fatTDatiCassaPrevStor) {
 		getListDatiCassaPrevStor().add(fatTDatiCassaPrevStor);
-		fatTDatiCassaPrevStor.setDizTipoCassa(this);
+		fatTDatiCassaPrevStor.setDizRitenuta(this);
 
 		return fatTDatiCassaPrevStor;
 	}
 
 	public FatTDatiCassaPrevStor removeFatTDatiCassaPrevStor(FatTDatiCassaPrevStor fatTDatiCassaPrevStor) {
 		getListDatiCassaPrevStor().remove(fatTDatiCassaPrevStor);
-		fatTDatiCassaPrevStor.setDizTipoCassa(null);
+		fatTDatiCassaPrevStor.setDizRitenuta(null);
 
 		return fatTDatiCassaPrevStor;
 	}
 
+	public List<FatTDettaglioLinea> getListDettaglioLinea() {
+		return this.listDettaglioLinea;
+	}
+
+	public void setListDettaglioLinea(List<FatTDettaglioLinea> listDettaglioLinea) {
+		this.listDettaglioLinea = listDettaglioLinea;
+	}
+
+	public FatTDettaglioLinea addFatTDettaglioLinea(FatTDettaglioLinea fatTDettaglioLinea) {
+		getListDettaglioLinea().add(fatTDettaglioLinea);
+		fatTDettaglioLinea.setDizRitenuta(this);
+
+		return fatTDettaglioLinea;
+	}
+
+	public FatTDettaglioLinea removeFatTDettaglioLinea(FatTDettaglioLinea fatTDettaglioLinea) {
+		getListDettaglioLinea().remove(fatTDettaglioLinea);
+		fatTDettaglioLinea.setDizRitenuta(null);
+
+		return fatTDettaglioLinea;
+	}
+
+	public List<FatTDettaglioLineaStor> getListDettaglioLineaStor() {
+		return this.listDettaglioLineaStor;
+	}
+
+	public void setListDettaglioLineaStor(List<FatTDettaglioLineaStor> listDettaglioLineaStor) {
+		this.listDettaglioLineaStor = listDettaglioLineaStor;
+	}
+
+	public FatTDettaglioLineaStor addFatTDettaglioLineaStor(FatTDettaglioLineaStor fatTDettaglioLineaStor) {
+		getListDettaglioLineaStor().add(fatTDettaglioLineaStor);
+		fatTDettaglioLineaStor.setDizRitenuta(this);
+
+		return fatTDettaglioLineaStor;
+	}
+
+	public FatTDettaglioLineaStor removeFatTDettaglioLineaStor(FatTDettaglioLineaStor fatTDettaglioLineaStor) {
+		getListDettaglioLineaStor().remove(fatTDettaglioLineaStor);
+		fatTDettaglioLineaStor.setDizRitenuta(null);
+
+		return fatTDettaglioLineaStor;
+	}
+
 	public Serializable getPrimaryKey() {
-		return this.idDizTipoCassa;
+		return this.idDizRitenuta;
 	}
 
 }

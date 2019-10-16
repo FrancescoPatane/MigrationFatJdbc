@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import it.pccube.dbmigration.destination.DestinationService;
 import it.pccube.dbmigration.source.SourceService;
 import it.pccube.dbmigration.source.model.FeDizTipoCassa;
+import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
 public class ProcedureService {
@@ -24,15 +25,26 @@ public class ProcedureService {
 	private DestinationService destinationService;
 	
 	public String start(){
-		List<FeDizTipoCassa> sourceList = sourceService.findAll("FE_DIZ_TIPO_CASSA", FeDizTipoCassa.class);
-		
-		this.destinationService.importFatTDizTipoCassa(sourceList);
+		log.info("#######START-MIGRATION######");
+		this.importFatTLotto();
+//		this.importFatTDizTipoCassa();
 		return "#### END ####";
 	}
 	
-	private void importFatTDizTipoCassa(List<FeDizTipoCassa> sourceList){
+	private void importFatTDizTipoCassa(){
+		log.info("--- START Fetching data FeLotto ---");
+		List<FeDizTipoCassa> sourceList = sourceService.findAll("FE_DIZ_TIPO_CASSA", FeDizTipoCassa.class);
 		log.info("--- START Import FatTDizTipoCassa, " + sourceList.size()  + " rows ---");
 		this.destinationService.importFatTDizTipoCassa(sourceList);
+		log.info("--- END Import FatTDizTipoCassa ---");
+
+	}
+	
+	private void importFatTLotto(){
+		log.info("--- START Fetching data FeLotto ---");
+		List<FeLotto> sourceList = sourceService.findAll("FE_LOTTO", FeLotto.class);
+		log.info("--- START Import FatTLotto, " + sourceList.size()  + " rows ---");
+//		this.destinationService.importFatTLotto(sourceList);
 		log.info("--- END Import FatTDizTipoCassa ---");
 
 	}

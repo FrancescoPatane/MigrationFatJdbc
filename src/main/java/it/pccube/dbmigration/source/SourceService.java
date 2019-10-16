@@ -29,5 +29,11 @@ public class SourceService {
 		return result;
 	}
 	
+//	public <T> List<T> findAll(String table){
+//		String sql = "select * from " + table;
+//		List<T> result = jdbcTemplate.query.query(sql, new BeanPropertyRowMapper(modelClass));
+//		return result;
+//	}
+	
 
 }

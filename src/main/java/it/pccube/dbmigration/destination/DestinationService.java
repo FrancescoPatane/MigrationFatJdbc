@@ -14,6 +14,7 @@ import it.pccube.dbmigration.destination.dao.FatTDizTipoCassaDao;
 import it.pccube.dbmigration.destination.entity.FatTDizTipoCassa;
 import it.pccube.dbmigration.mapper.Mapper;
 import it.pccube.dbmigration.source.model.FeDizTipoCassa;
+import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
 public class DestinationService {
@@ -51,4 +52,19 @@ public class DestinationService {
 
 	}
 
-}
+
+	@Transactional(transactionManager="tm2", rollbackFor = Exception.class)
+	public void importFatTLotto(List<FeLotto> beans) {
+//		for(FeLotto bean : beans){
+//			log.info("--- Trying to import FeDizTipoCassa with PK " + bean.getIdLotto() + " ---");
+//			try{
+//				FatTDizTipoCassa entity = this.mapper.mapFatTDizTipoCassa(bean);
+//				fatTDizTipoCassaDao.save(entity);
+//				log.info("--- Successfully imported FeDizTipoCassa with PK " + bean.getPrimaryKey() + " ---");
+//			}catch (Exception e){
+//				log.error("--- Error importing FeDizTipoCassa with PK " + bean.getPrimaryKey() + " ---");
+//				throw e;
+//			}
+		}
+	}
+
