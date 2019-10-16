@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
         transactionManagerRef = "tm2",
         basePackages = {"it.pccube.dbmigration.destination.dao"}
 )
-public class JpaSecondaryConfig {
+public class JpaConfiguration {
 	
 	@Autowired 
 	@Qualifier ("dbDestination")  

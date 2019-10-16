@@ -22,8 +22,8 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     	 
     	    @Override
     	    public void run(String...args) throws Exception {
-    	    	log.info("#############");
-    	    	log.info(procService.test());
+    	    	log.info("#######START-MIGRATION######");
+    	    	log.info(procService.start());
     	    	log.info("#############");
 
     	    }
