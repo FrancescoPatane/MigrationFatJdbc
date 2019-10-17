@@ -29,7 +29,7 @@ public class FeLotto  {
 
 	private Long soggettoEmittente;
 
-	private Long esitoVerificaFirma;
+	private Boolean esitoVerificaFirma;
 
 	private Long nazioneSedeCedente;
 
@@ -309,10 +309,10 @@ public class FeLotto  {
 	public void setSoggettoEmittente(Long soggettoEmittente) {
 		this.soggettoEmittente = soggettoEmittente;
 	}
-	public Long getEsitoVerificaFirma() {
+	public Boolean getEsitoVerificaFirma() {
 		return esitoVerificaFirma;
 	}
-	public void setEsitoVerificaFirma(Long esitoVerificaFirma) {
+	public void setEsitoVerificaFirma(Boolean esitoVerificaFirma) {
 		this.esitoVerificaFirma = esitoVerificaFirma;
 	}
 	public Long getNazioneSedeCedente() {

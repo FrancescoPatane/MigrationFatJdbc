@@ -1,7 +1,6 @@
 package it.pccube.dbmigration.ext.doc;
 
 
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import it.pccube.dbmigration.ext.RestfulClientB2BService;
+
+import java.util.Base64;
 
 import javax.mail.internet.ContentDisposition;
 import javax.mail.internet.ParseException;
@@ -44,8 +45,9 @@ public class DocumentaleService {
 	public OutputDocumentale uploadDocumento(String fileBase64, String filename) {
 		logger.info("Upload documento " + filename);
 
-		byte[] data = Base64.decodeBase64(fileBase64);
+		byte[] data = Base64.getDecoder().decode(fileBase64);
 		OutputDocumentale output = restfulClient.doPostUpload(baseUrl+URL_UPLOAD, filename, OutputDocumentale.class, data);
+		logger.info(filename + "uploaded");
 		return output;
 	}
 
