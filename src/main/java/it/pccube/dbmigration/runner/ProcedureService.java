@@ -10,13 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import it.pccube.dbmigration.destination.DestinationService;
 import it.pccube.dbmigration.source.SourceService;
-import it.pccube.dbmigration.source.model.FeDizTipoCassa;
 import it.pccube.dbmigration.source.model.FeLotto;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-//@Transactional(transactionManager="tm2",  rollbackFor = Exception.class)
-
 public class ProcedureService {
 	
     private static  Logger log = LoggerFactory.getLogger(ProcedureService.class);
@@ -30,27 +27,17 @@ public class ProcedureService {
 	
 	
 	public String start(){
-		log.info("#######START-MIGRATION######");
+		log.info("####### START-MIGRATION ######");
 		this.importFatTLotto();
-//		this.importFatTDizTipoCassa();
 		return "#### END ####";
 	}
 	
-	private void importFatTDizTipoCassa(){
-		log.info("--- START Fetching data FeLotto ---");
-		List<FeDizTipoCassa> sourceList = sourceService.findAll("FE_DIZ_TIPO_CASSA", FeDizTipoCassa.class);
-		log.info("--- START Import FatTDizTipoCassa, " + sourceList.size()  + " rows ---");
-		this.destinationService.importFatTDizTipoCassa(sourceList);
-		log.info("--- END Import FatTDizTipoCassa ---");
-
-	}
-	
 	private void importFatTLotto(){
-		log.info("--- START Fetching data FeLotto ---");
-		List<FeLotto> sourceList = sourceService.findAll("FE_LOTTO", FeLotto.class);
-		log.info("--- START Import FatTLotto, " + sourceList.size()  + " rows ---");
+		this.sourceService.countAll(FeLotto.TABLE_NAME, FeLotto.class);
+		List<FeLotto> sourceList = sourceService.findAll(FeLotto.TABLE_NAME, FeLotto.class);
+		log.info("START Import FatTLotto, " + sourceList.size()  + " rows");
 		this.destinationService.importFatTLotto(sourceList);
-		log.info("--- END Import FatTDizTipoCassa ---");
+		log.info("--- END Import FatTLotto ---");
 
 	}
 

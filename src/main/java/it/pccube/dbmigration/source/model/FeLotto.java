@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class FeLotto  {
 
-	private static final long serialVersionUID = 1L;
+	public static final String TABLE_NAME = "FE_LOTTO";
 
 	public FeLotto() {
 		super();

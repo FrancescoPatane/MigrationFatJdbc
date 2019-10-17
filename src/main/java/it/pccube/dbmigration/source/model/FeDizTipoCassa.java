@@ -1,20 +1,7 @@
 package it.pccube.dbmigration.source.model;
 
-import java.io.Serializable;
+public class FeDizTipoCassa  {
 
-
-/**
- * @author fiorenzo.amendola
- * @since Fatturazione elettronica
- * The Class FeDizTipoCassa.
- */
-
-public class FeDizTipoCassa implements Entity {
-
-	/**
-	 * the serialVersionUID
-	 */
-	private static final long serialVersionUID = 1L;
 
 	public FeDizTipoCassa() {
 	}
@@ -117,10 +104,6 @@ public class FeDizTipoCassa implements Entity {
 		return true;
 	}
 
-	@Override
-	public Serializable getPrimaryKey() {
-		return this.getIdDizTipoCassa();
-	}
 
 
 }
