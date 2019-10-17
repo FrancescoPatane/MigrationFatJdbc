@@ -36,6 +36,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.pccube.dbmigration.ext.doc.DocumentaleException;
+import it.pccube.dbmigration.ext.doc.FileResource;
+import it.pccube.dbmigration.ext.doc.OutputDeleteDocumentale;
+
 
 @Component
 public class RestfulClientB2BService {

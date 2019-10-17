@@ -1,4 +1,4 @@
-package it.pccube.dbmigration.ext;
+package it.pccube.dbmigration.ext.doc;
 
 
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+
+import it.pccube.dbmigration.ext.RestfulClientB2BService;
 
 import javax.mail.internet.ContentDisposition;
 import javax.mail.internet.ParseException;

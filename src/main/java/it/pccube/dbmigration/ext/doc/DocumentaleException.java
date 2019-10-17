@@ -1,4 +1,4 @@
-package it.pccube.dbmigration.ext;
+package it.pccube.dbmigration.ext.doc;
 
 public class DocumentaleException extends RuntimeException{
 

@@ -1,4 +1,4 @@
-package it.pccube.dbmigration.ext;
+package it.pccube.dbmigration.ext.doc;
 
 import org.springframework.core.io.ByteArrayResource;
 

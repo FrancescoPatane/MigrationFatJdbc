@@ -1,4 +1,4 @@
-package it.pccube.dbmigration.ext;
+package it.pccube.dbmigration.ext.doc;
 
 import java.io.Serializable;
 
