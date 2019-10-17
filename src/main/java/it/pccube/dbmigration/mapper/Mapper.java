@@ -33,6 +33,16 @@ public class Mapper {
 		entity.setCdCapSedeCessionario(bean.getCapSedeCessionario());
 		entity.setCdCapStabileCedente(bean.getCapStabileCedente());
 		entity.setCdCapStabileCessionario(bean.getCapStabileCessionario());
+		entity.setCdCfCedente(bean.getCodiceFiscaleCedente());
+		entity.setCdCivicoStabileCessionario(bean.getIndirizzoStabileCessionario());
+		entity.setCdCodEoriCedente(bean.getCodEoriCedente());
+		entity.setCdCodEoriCessionario(bean.getCodEoriCessionario());
+		entity.setCdCodEoriRapFiscale(bean.getCodiceFiscaleRapFiscale());
+		entity.setCdCodEoriTerzoInt(bean.getCodEoriTerzoInt());
+		entity.setCdCodiceCedente(bean.getIdCodiceCedente());
+		entity.setCdCodiceCessionario(bean.getIdCodiceCessionario());
+		entity.setCdCodiceDestinatario(bean.getCodiceDestinatario());
+		
 		return entity;
 	}
 
